@@ -7,8 +7,9 @@ export const map = Map({
   4: 'Oliver',
   5: 'Jacob',
   6: 'Lucas',
-})
+});
 
-export const map2 = map
-  .set(2, 'Benjamin');
-  .set(4, 'Oliver');
+export const map2 = map.withMutations(mapMutate => {
+  mapMutate.set(2, 'Benjamin');
+  mapMutate.set(4, 'Oliver');
+});
