@@ -9,5 +9,10 @@ import { Map } from 'immutable';
 export default function accessImmutableObject(object, array) {
   const immutableObject = Map(object);
   const value = immutableObject.getIn(array);
-  return value ? value : undefined;
+
+  if (value) {
+    return value;
+  }
+
+  return undefined;
 }
