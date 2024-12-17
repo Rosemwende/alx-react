@@ -1,13 +1,11 @@
-import { Map, fromJS } from 'immutable';
+import { Seq } from 'immutable';
 
 export function printBestStudents(grades) {
-  const students = fromJS(grades);
-
-  students
-    .filter(student => student.get('score') >= 70)
+  Seq(grades)
+    .filter(student => student.score >= 70)
     .forEach(student => {
-      const firstName = student.get('firstName').charAt(0).toUpperCase() + student.get('firstName').slice(1);
-      const lastName = student.get('lastName').charAt(0).toUpperCase() + student.get('lastName').slice(1);
+      const firstName = student.firstName.charAt(0).toUpperCase() + student.firstName.slice(1);
+      const lastName = student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1);
       console.log(`${firstName} ${lastName}`);
     });
 }
