@@ -9,7 +9,7 @@ export const map = Map({
   6: 'Lucas',
 });
 
-export const map2 = map.withMutations(mapMutate => {
+export const map2 = map.withMutations((mapMutate) => {
   mapMutate.set(2, 'Benjamin');
   mapMutate.set(4, 'Oliver');
 });
