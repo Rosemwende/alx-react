@@ -1,3 +1,4 @@
+
 import { List, Map } from 'immutable';
 
 /**
@@ -7,12 +8,13 @@ import { List, Map } from 'immutable';
  * @returns {List} - The concatenated List
  */
 export function concatElements(page1, page2) {
-  return List(page1.concat(page2));
+  const result = List(page1.concat(page2));
+  console.log(result);
+  return result;
 }
 
 /**
- * Merges two objects into a single Immutable List,
- * with values from page2 overriding page1
+ * Merges two objects into a single Immutable List, with values from page2 overriding page1
  * @param {Object} page1 - The first object
  * @param {Object} page2 - The second object
  * @returns {List} - The merged List of values
@@ -20,5 +22,7 @@ export function concatElements(page1, page2) {
 export function mergeElements(page1, page2) {
   const map1 = Map(page1);
   const map2 = Map(page2);
-  return map1.merge(map2).toList();
+  const result = map1.merge(map2).toList();
+  console.log(result);
+  return result;
 }
