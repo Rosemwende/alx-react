@@ -6,11 +6,13 @@ export default function printBestStudents(grades) {
     .map((student) => ({
       firstName: student.firstName.charAt(0).toUpperCase() + student.firstName.slice(1),
       lastName: student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1),
+      score: student.score,
     }));
 
-  result.forEach((student) => {
+  const formattedResult = result.toJS();
+  formattedResult.forEach((student) => {
     console.log(`${student.firstName} ${student.lastName}`);
   });
 
-  return result.toJS();
+  return formattedResult;
 }
