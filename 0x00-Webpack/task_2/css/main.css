@@ -1,11 +1,11 @@
-#logo {
+.logo {
   background-image: url('../assets/holberton-logo.jpg');
   width: 200px;
   height: 200px;
   background-size: 200px 200px;
 }
 
-#count {
+.count {
   font-weight: bold;
   position: absolute;
   right: 50px;
