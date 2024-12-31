@@ -10,12 +10,9 @@ export default function accessImmutableObject(object, array) {
   const immutableObject = Map(object);
   const value = immutableObject.getIn(array);
 
-  // If the value is a Map, return it directly
-  if (Map.isMap(value)) {
+  if (value !== undefined) {
     return value;
   }
 
-  // Otherwise, return undefined
   return undefined;
 }
-
