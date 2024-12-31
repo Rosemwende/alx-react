@@ -1,16 +1,18 @@
-import { fromJS } from 'immutable';
+import { Map } from 'immutable';
 
 /**
- * Converts a plain JavaScript object into an Immutable Map using fromJS,
- * and accesses the value at a defined path using getIn.
- * @param {Object} object - The plain object to convert.
- * @param {Array} array - The path to the value to retrieve.
+ * Access the value at a defined path in an immutable object using `getIn`
+ * @param {Object} object - The object to access
+ * @param {Array} array - The array defining the path to the value
  * @returns {any} - The value at the path (string, Map, or undefined)
  */
-export default function getImmutableObject(object, array) {
-  const immutableObject = fromJS(object);
-
+export default function accessImmutableObject(object, array) {
+  const immutableObject = Map(object);
   const value = immutableObject.getIn(array);
 
-  return value;
+  if (value !== undefined) {
+    return value;
+  }
+
+  return undefined;
 }
