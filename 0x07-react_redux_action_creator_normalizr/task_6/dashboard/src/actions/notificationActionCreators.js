@@ -1,28 +1,28 @@
-import { SELECT_COURSE, UNSELECT_COURSE } from './courseActionTypes';
+import { MARK_AS_READ, SET_TYPE_FILTER } from './notificationActionTypes';
 
 /**
- * Action to select a course
- * @param {number} index - Index of the course to select
+ * Action to mark a notification as read
+ * @param {number} index - Index of the notification to mark as read
  * @returns {Object} Action object
  */
-export const selectCourse = (index) => ({
-  type: SELECT_COURSE,
+export const markAsRead = (index) => ({
+  type: MARK_AS_READ,
   index,
 });
 
 /**
- * Action to unselect a course
- * @param {number} index - Index of the course to unselect
+ * Action to set the notification filter
+ * @param {string} filter - Filter type (DEFAULT or URGENT)
  * @returns {Object} Action object
  */
-export const unSelectCourse = (index) => ({
-  type: UNSELECT_COURSE,
-  index,
+export const setNotificationFilter = (filter) => ({
+  type: SET_TYPE_FILTER,
+  filter,
 });
 
 import { bindActionCreators } from 'redux';
 
-export const boundCourseActions = (dispatch) => bindActionCreators(
-  { selectCourse, unSelectCourse },
+export const boundNotificationActions = (dispatch) => bindActionCreators(
+  { markAsRead, setNotificationFilter },
   dispatch
 );
