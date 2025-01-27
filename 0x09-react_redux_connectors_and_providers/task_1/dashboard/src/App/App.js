@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { displayNotificationDrawer, hideNotificationDrawer } from '../actions/uiActionCreators';
 
@@ -26,6 +27,18 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  displayDrawer: PropTypes.bool,
+  displayNotificationDrawer: PropTypes.func.isRequired,
+  hideNotificationDrawer: PropTypes.func.isRequired,
+};
+
+App.defaultProps = {
+  isLoggedIn: false,
+  displayDrawer: false,
+};
 
 export const mapStateToProps = (state) => ({
   isLoggedIn: state.get('isUserLoggedIn'),
