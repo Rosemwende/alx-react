@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { displayNotificationDrawer, hideNotificationDrawer } from '../actions/uiActionCreators';
 
 class App extends React.Component {
   render() {
-    const { isLoggedIn, displayDrawer } = this.props;
+    const { isLoggedIn, displayDrawer, displayNotificationDrawer, hideNotificationDrawer } = this.props;
 
     return (
       <div>
@@ -13,7 +14,14 @@ class App extends React.Component {
         ) : (
           <p>Please log in to access your dashboard.</p>
         )}
-        {displayDrawer && <div className="notification-drawer">Notifications</div>}
+        {displayDrawer ? (
+          <div className="notification-drawer">
+            <p>Notifications</p>
+            <button onClick={hideNotificationDrawer}>Hide Drawer</button>
+          </div>
+        ) : (
+          <button onClick={displayNotificationDrawer}>Show Notifications</button>
+        )}
       </div>
     );
   }
@@ -24,4 +32,9 @@ export const mapStateToProps = (state) => ({
   displayDrawer: state.get('isNotificationDrawerVisible'),
 });
 
-export default connect(mapStateToProps)(App);
+export const mapDispatchToProps = {
+  displayNotificationDrawer,
+  hideNotificationDrawer,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
